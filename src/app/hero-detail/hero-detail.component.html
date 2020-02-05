@@ -1,18 +1,37 @@
-<div *ngIf="hero">
-    <h2>{{hero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{hero.id}}</div>
-    <div>
-        <label>nome:
-            <input [(ngModel)]="hero.name" placeholder="nome"/>
-        </label>
+<article id="edit-hero-component">
+  <header *ngIf="hero">
+    <h2 class="align-right">
+      {{hero.name | uppercase}} Details
+    </h2>
+  </header>
 
-    </div>
-    <div>
-        <label>função:
-            <input [(ngModel)]="hero.type" placeholder="função"/>
-        </label>
-    </div>
-</div>
+  <form class="edit-hero-form" role="hero data">
+    <div class="input-group" *ngIf="hero">
+      <label>ID </label>{{hero.id}}
+        
+      <div class="input-group-item">
+        <label id="nameLabel" for="name">Nome</label>
+        <input aria-labelledby="nameLabel" name="name" [(ngModel)]="hero.name" placeholder="nome" />
+      </div>
 
-<button (click)="save()">Salvar</button>
-<button (click)="goBack()">Voltar</button>
+      <div class="input-group-item">
+        <label id="typeLabel" for="type">Função</label>
+        <input aria-labelledby="typeLabel" name="type" [(ngModel)]="hero.type" placeholder="função" />
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button class="back" (click)="goBack()">Voltar</button>
+      <button *ngIf="hero" class="save" (click)="save()">Salvar</button>
+    </div>
+  </form>
+  
+  <figure class="profile-picture" *ngIf="hero">
+    <img
+      src="https://observatoriodocinema.bol.uol.com.br/wp-content/uploads/2019/02/mark-hamill-as-luke-skywalker-in-the-last-jedi.png.jpeg"
+      alt="Luke Skywalker Picture" />
+
+    <figcaption>Picture of Luke Skywalker, Jedi Master</figcaption>
+  </figure>
+  
+</article>

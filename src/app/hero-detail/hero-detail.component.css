@@ -1,34 +1,66 @@
-label {
-    display: inline-block;
-    width: 3em;
-    margin: .5em 0;
-    color: #607D8B;
-    font-weight: bold;
+#edit-hero-component {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: rgba(235, 230, 230, 0.972);
+  padding: 15px 15px;
+  align-content: left;
+  margin: 15px 0;
 }
 
-input {
-    height: 2em;
-    font-size: 1em;
-    padding-left: .4em;
+#edit-hero-component header {
+  flex: 1 100%;
+  display: block;
+  font-size: 1.5em;
+  font-weight: lighter;
 }
 
-button {
-    margin-top: 20px;
-    font-family: Arial;
-    background-color: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    cursor: hand;
+#edit-hero-component .edit-hero-form {
+  margin: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 5px 0;
+  flex: 2;
 }
 
-button:hover {
-    background-color: #cfd8dc;
+#edit-hero-component .edit-hero-form .input-group .input-group-item {
+  margin: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 5px 0;
 }
 
-button:disabled {
-    background-color: #eee;
-    color: #ccc;
-    cursor: auto;
+#edit-hero-component .edit-hero-form .input-group .input-group-item input {
+  height: 2em;
+  padding-left: 5px;
+}
+
+#edit-hero-component .edit-hero-form .input-group label {
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+#edit-hero-component .edit-hero-form .button-group button {
+  margin-right: 5px;
+  width: 80px;
+  height: 40px;
+  font-family: Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: large;
+  border-radius: 10%;
+}
+
+#edit-hero-component .edit-hero-form .button-group .save {
+  background-color: rgb(163, 214, 159);
+}
+
+#edit-hero-component .profile-picture {
+  display: flex;
+  flex-direction: column;
+}
+
+#edit-hero-component .profile-picture img {
+  height: 250px;
+  width: 400px;
 }
