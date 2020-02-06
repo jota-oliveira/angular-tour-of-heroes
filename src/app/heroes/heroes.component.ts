@@ -10,8 +10,8 @@ import { HeroService } from '../hero.service';
 
 export class HeroesComponent implements OnInit {
 
-  constructor(private heroService: HeroService) { };
-  
+  constructor(private heroService: HeroService) {}
+
   heroes: Hero[];
 
   ngOnInit() {
@@ -20,16 +20,24 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => {
+        heroes.map(hero => this.addUrlToHero(hero));
+        this.heroes = heroes;
+      });
   }
-  
+
+  addUrlToHero(hero: Hero) {
+    hero.url = `/detail/${hero.id}`;
+    return hero;
+  }
+
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    
+
     this.heroService.addHero({ name } as Hero)
       .subscribe(hero => {
-        this.heroes.push(hero);
+        this.heroes.push(this.addUrlToHero(hero));
       });
   }
 

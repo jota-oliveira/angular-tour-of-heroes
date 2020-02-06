@@ -5,17 +5,17 @@
     </h2>
   </header>
 
-  <form class="edit-hero-form" role="hero data">
+  <form class="edit-hero-form">
     <div class="input-group" *ngIf="hero">
-      <label>ID </label>{{hero.id}}
+      <i><span>#ID </span>{{hero.id}}</i> 
         
       <div class="input-group-item">
-        <label id="nameLabel" for="name">Nome</label>
+        <label for="name">Nome</label>
         <input aria-labelledby="nameLabel" name="name" [(ngModel)]="hero.name" placeholder="nome" />
       </div>
 
       <div class="input-group-item">
-        <label id="typeLabel" for="type">Função</label>
+        <label for="type">Função</label>
         <input aria-labelledby="typeLabel" name="type" [(ngModel)]="hero.type" placeholder="função" />
       </div>
     </div>
@@ -32,6 +32,5 @@
       alt="Luke Skywalker Picture" />
 
     <figcaption>Picture of Luke Skywalker, Jedi Master</figcaption>
-  </figure>
-  
+  </figure>  
 </article>

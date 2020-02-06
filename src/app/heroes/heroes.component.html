@@ -1,24 +1,23 @@
 <h2>Heróis Intergaláticos</h2>
 
 <div>
-    <label>Hero name:
-        <input #heroName />
-    </label>
-    
-    <button (click)="add(heroName.value); heroName.value=''">
-        add
-    </button>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <po-button
+    p-label="Adicionar"
+    (p-click)="add(heroName.value); heroName.value=''"
+  ></po-button>
+
 </div>
 
-<ul class="heroes">
-    <li
-        *ngFor="let hero of heroes"
-    >
-        <a routerLink="/detail/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </a>
-
-        <button class="delete" title="Deletar herói"
-            (click)="delete(hero)">x</button>
-    </li>
-</ul>
+<po-list-view 
+  p-property-title="name"
+  p-property-link="url"
+  [p-items]="heroes">
+    <ng-template p-list-view-content-template let-item>
+      <div class="po-row">
+        <po-info class="po-md-3" [p-value]="item.type"></po-info>
+      </div>
+    </ng-template>
+</po-list-view>
